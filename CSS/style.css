@@ -1,0 +1,153 @@
+* {
+    font-family: 'Marmelad', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: gray;
+}
+
+a:hover {
+    color: rgb(100,100,150);
+}
+
+form {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    width: 100px;
+}
+
+.edit {
+    margin-top: 20px;
+}
+
+.wrap {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 20px 200px;
+}
+
+.wrap_add {
+    padding: 20px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap_add form {
+    padding: 10px 50px 50px;
+    border-radius: 10px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrap_add form input{
+    width: 250px;
+    height: 50px;
+    font-size: 24px;
+    padding-left: 6px ;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.wrap_add form input[type="submit"] {
+    margin-top: 30px;
+    transition: 0.5s;
+    color: black;
+    background-color: white;
+    font-size: 23px;
+    border-radius: 10px;
+    padding: 6px 9px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.wrap_add form input[type="submit"]:hover {
+    transition: 0.5s;
+    color: blue;
+    border-color: blue;
+}
+
+.wrap_add form label p {
+    margin-bottom: 10px;
+    font-size: 23px;
+}
+
+.wrap_add form label {
+    margin-top: 0px;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.links a,.add a{
+    transition: 0.5s;
+    color: black;
+    background-color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 6px 9px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.links a:first-child {
+    margin-right: 15px ;
+}
+
+.links a:hover,.add a:hover {
+    transition: 0.5s;
+    color: blue;
+    border-color: blue;
+}
+
+.write p {
+    margin-top: -5px;
+    font-size: 18px;
+}
+
+.write {
+    justify-content: space-between;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+.add {
+    margin-top: 30px;
+}
+
+.write_links {
+    margin-bottom: 10px;
+    text-align: right;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.write_links a {
+    margin-bottom: 7px;
+    color: blue;
+}
+
+.edit_title {
+    line-height: 35px;
+    margin-bottom: 40px;
+    text-align: center;
+}
