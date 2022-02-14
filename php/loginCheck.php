@@ -4,7 +4,6 @@ require_once '../connect.php';
 
 function checkRole($mysqli): string
 {
-
     if (!empty($_SESSION['name']) and !empty($_SESSION['lastname'])) {
 
         $name = strip_tags($_SESSION['name']);

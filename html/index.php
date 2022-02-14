@@ -1,6 +1,5 @@
 <?php
 require_once '../connect.php';
-require_once "../php/loginCheck.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -30,7 +29,7 @@ require_once "../php/loginCheck.php";
     elseif (checkRole($mysqli) === 'admin'):
         ?>
         <div class="links">
-            <a href='login.php'>Выйти</a>
+            <a href='../php/logout.php'>Выйти</a>
         </div>
         <h1>Вы админ!</h1>
 
@@ -38,7 +37,7 @@ require_once "../php/loginCheck.php";
     elseif (checkRole($mysqli) === 'authorized'):
         ?>
         <div class="links">
-            <a href='login.php'>Выйти</a>
+            <a href='../php/logout.php'>Выйти</a>
         </div>
         <h1>Вы авторизированны!</h1>
     <?php
