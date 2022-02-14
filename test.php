@@ -22,3 +22,12 @@ function loginValidator($field)
     }
     return true;
 }
+
+
+$lastname = '1';
+$name = '1';
+
+
+if (!loginValidator($lastname) or !loginValidator($name)) {
+    echo "<h2 class='red'>Некорректные данные</h2>";
+}

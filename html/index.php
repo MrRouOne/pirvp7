@@ -1,5 +1,6 @@
 <?php
 require_once '../connect.php';
+require_once "../php/loginCheck.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -16,11 +17,36 @@ require_once '../connect.php';
           rel="stylesheet">
 </head>
 <body>
+<div class="wrap">
+    <?php
+    if (checkRole($mysqli) === 'guest'):
+        ?>
+        <div class="links">
+            <a href='register.php'>Зарегистрироваться</a>
+            <a href='login.php'>Войти</a>
+        </div>
+        <h1>Вы гость!</h1>
+    <?php
+    elseif (checkRole($mysqli) === 'admin'):
+        ?>
+        <div class="links">
+            <a href='login.php'>Выйти</a>
+        </div>
+        <h1>Вы админ!</h1>
 
-<a href='register.php'>Зарегистрироваться</a>
+    <?php
+    elseif (checkRole($mysqli) === 'authorized'):
+        ?>
+        <div class="links">
+            <a href='login.php'>Выйти</a>
+        </div>
+        <h1>Вы авторизированны!</h1>
+    <?php
+    endif;
+    ?>
+</div>
 
 </body>
-
 </html>
 
 
