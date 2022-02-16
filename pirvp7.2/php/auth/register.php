@@ -13,11 +13,26 @@ if (!empty($_POST['submit']) && $_POST['submit'] == 'Регистрация') {
 
     // Проверяем данные
     $count = 0;
-    $query = "SELECT * FROM users WHERE  email = '$email'";
+    $query = "SELECT * FROM users WHERE email = '$email'";
     $res = mysqli_query($mysqli, $query);
 
     if ($res->{'num_rows'} != 0) {
-        $message = "Такой пользователь уже существует";
+        $messages[] = "Такой пользователь уже существует!<br>";
+        $count++;
+    }
+
+    if (!russianSymbol($FIO)) {
+        $messages[] = "ФИО должно быть на русском!<br>";
+        $count++;
+    }
+
+    if (!minLength($password)) {
+        $messages[] = "Пароль должен содержать не менее 6 символов!<br>";
+        $count++;
+    }
+
+    if (!passwordsRepeatCheck($password,$password2)) {
+        $messages[] = "Пароли не совпадают!<br>";
         $count++;
     }
 

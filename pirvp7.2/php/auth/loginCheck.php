@@ -4,12 +4,10 @@ require_once '../connect.php';
 
 function checkRole($mysqli): string
 {
-    if (!empty($_SESSION['name']) and !empty($_SESSION['lastname'])) {
+    if (!empty($_SESSION['email'])) {
+        $email = strip_tags($_SESSION['email']);
 
-        $name = strip_tags($_SESSION['name']);
-        $lastname = strip_tags($_SESSION['lastname']);
-
-        $query = "SELECT * FROM users WHERE name LIKE '$name' and lastname LIKE '$lastname'";
+        $query = "SELECT * FROM users WHERE email LIKE '$email'";
 
         $res = mysqli_query($mysqli, $query);
         if (!$res) die (mysqli_error($mysqli));

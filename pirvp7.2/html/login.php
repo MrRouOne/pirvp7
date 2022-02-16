@@ -30,27 +30,51 @@ require_once '../connect.php';
             <h4 class="nav-link">Интернет-магазин</h4>
         </a>
 
-        <ul class="nav nav-pills">
-            <?php
-            if (checkRole($mysqli) === 'guest'):
-                ?>
-                <li class="nav-item"><a href='#' class="nav-link">Гость</a></li>
-                <li class="nav-item"><a href='register.php' class="nav-link">Зарегистрироваться</a></li>
-                <li class="nav-item"><a href='login.php' class="nav-link">Войти</a></li>
-            <?php
-            elseif (checkRole($mysqli) === 'admin'):
-                ?>
-                <li class="nav-item"><a href='#' class="nav-link">Админ</a></li>
-                <li class="nav-item"><a class="nav-link" href='../php/Auth/logout.php'>Выйти</a></li>
-            <?php
-            elseif (checkRole($mysqli) === 'authorized'):
-                ?>
-                <li class="nav-item"><a href='#' class="nav-link">Вошедший</a></li>
-                <li class="nav-item"><a class="nav-link" href='../php/Auth/logout.php'>Выйти</a></li>
-            <?php
-            endif;
+
+        <?php
+        if (checkRole($mysqli) === 'guest'):
             ?>
-        </ul>
+            <div class="dropdown text-end">
+                <a style="margin-top: 15px; margin-right: 100px;" href="#"
+                   class="d-block link-dark text-decoration-none dropdown-toggle"
+                   id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Гость
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="register.php">Зарегистрироваться</a></li>
+                    <li><a class="dropdown-item" href="login.php">Войти</a></li>
+                </ul>
+            </div>
+        <?php
+        elseif (checkRole($mysqli) === 'admin'):
+            ?>
+            <div class="dropdown text-end">
+                <a style="margin-top: 15px; margin-right: 100px;" href="#"
+                   class="d-block link-dark text-decoration-none dropdown-toggle"
+                   id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <?= $USER_FIO ?>
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="../php/Auth/logout.php">Выйти</a></li>
+                </ul>
+            </div>
+        <?php
+        elseif (checkRole($mysqli) === 'authorized'):
+            ?>
+            <div class="dropdown text-end">
+                <a style="margin-top: 15px; margin-right: 100px;" href="#"
+                   class="d-block link-dark text-decoration-none dropdown-toggle"
+                   id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <?= $USER_FIO ?>
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="cart.php">Корзина</a></li>
+                    <li><a class="dropdown-item" href="../php/Auth/logout.php">Выйти</a></li>
+                </ul>
+            </div>
+        <?php
+        endif;
+        ?>
     </header>
 
     <?php include '../php/auth/login.php'; ?>
@@ -59,12 +83,8 @@ require_once '../connect.php';
     <form method="post">
         <div class="d-flex flex-column align-items-center">
             <div style="margin-bottom: 30px;" class="mb3 col-8">
-                <label class="form-label"><h3>Имя</h3></label>
-                <input class="form-control" type="text" name="name" required>
-            </div>
-            <div style="margin-bottom: 30px;" class="mb3 col-8">
-                <label class="form-label"><h3>Фамилия</h3></label>
-                <input class="form-control" type="text" name="lastname" required>
+                <label class="form-label"><h3>E-mail</h3></label>
+                <input class="form-control" type="email" name="email" required>
             </div>
             <div class="mb3 col-8">
                 <label class="form-label"><h3>Пароль</h3></label>

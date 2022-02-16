@@ -77,9 +77,11 @@ require_once '../connect.php';
         ?>
     </header>
     <div class="cards">
-        <h1 class="text-center" style="margin-top: 40px;">Список товаров</h1>
+        <h1 class="text-center" style="margin-top: 40px;">Корзина</h1>
         <?php
-        require_once '../php/servicesOutput.php';
+        require_once '../php/cart/addToCart.php';
+        require_once '../php/cart/removeFromCart.php';
+        require_once '../php/cart/cartOutput.php';
         ?>
     </div>
 
