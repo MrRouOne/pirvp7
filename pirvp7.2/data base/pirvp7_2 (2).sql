@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 16 2022 г., 17:10
+-- Время создания: Фев 19 2022 г., 18:08
 -- Версия сервера: 10.4.21-MariaDB
 -- Версия PHP: 8.1.2
 
@@ -37,7 +37,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user`) VALUES
-(1, 14);
+(19, 14);
 
 -- --------------------------------------------------------
 
@@ -72,15 +72,6 @@ CREATE TABLE `service_carts` (
   `service` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Дамп данных таблицы `service_carts`
---
-
-INSERT INTO `service_carts` (`id`, `user`, `service`) VALUES
-(1, 14, 1),
-(2, 14, 2),
-(18, 14, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -99,8 +90,7 @@ CREATE TABLE `service_orders` (
 --
 
 INSERT INTO `service_orders` (`id`, `service`, `orders`, `price`) VALUES
-(1, 1, 1, 15),
-(2, 2, 1, 1000);
+(8, 1, 19, 15);
 
 -- --------------------------------------------------------
 
@@ -178,25 +168,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `service_carts`
 --
 ALTER TABLE `service_carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT для таблицы `service_orders`
 --
 ALTER TABLE `service_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
