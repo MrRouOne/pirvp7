@@ -46,7 +46,7 @@ require_once '../connect.php';
                 </ul>
             </div>
         <?php
-        elseif (checkRole($mysqli) === 'admin'):
+        elseif (isAdmin($mysqli)):
             ?>
             <div class="dropdown text-end">
                 <a style="margin-top: 15px; margin-right: 100px;" href="#"
@@ -56,11 +56,12 @@ require_once '../connect.php';
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                     <li><a class="dropdown-item" href="serviceAdd.php">Добавить товар</a></li>
+                    <li><a class="dropdown-item" href="orderAll.php">Заказы</a></li>
                     <li><a class="dropdown-item" href="../php/Auth/logout.php">Выйти</a></li>
                 </ul>
             </div>
         <?php
-        elseif (checkRole($mysqli) === 'authorized'):
+        elseif (isAuthorized($mysqli)):
             ?>
             <div class="dropdown text-end">
                 <a style="margin-top: 15px; margin-right: 100px;" href="#"

@@ -24,4 +24,18 @@ function checkRole($mysqli): string
     return "guest";
 }
 
+function isAdmin($mysqli) {
+    if (checkRole($mysqli) === 'admin') {
+        return true;
+    }
+    return false;
+}
+
+function isAuthorized($mysqli) {
+    if (checkRole($mysqli) === 'authorized') {
+        return true;
+    }
+    return false;
+}
+
 ?>

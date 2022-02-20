@@ -1,5 +1,6 @@
 <?php
 
+
 function russianSymbol(string $field): bool
 {
     if (preg_match('/^[йцукенгшщзхъфывапролджэячсмитьбюёЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮЁ ]+$/', $field)) {
@@ -40,3 +41,4 @@ function minLength(string $field): bool
     }
     return true;
 }
+
