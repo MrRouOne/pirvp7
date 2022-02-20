@@ -7,11 +7,7 @@ function checkRole($mysqli): string
     if (!empty($_SESSION['email'])) {
         $email = strip_tags($_SESSION['email']);
 
-        $query = "SELECT * FROM users WHERE email LIKE '$email'";
-
-        $res = mysqli_query($mysqli, $query);
-        if (!$res) die (mysqli_error($mysqli));
-        $row = mysqli_fetch_assoc($res);
+        $row = mysqli_fetch_assoc(checkResult($mysqli,"SELECT * FROM users WHERE email LIKE '$email'"));
 
         if ($row['role'] == 0) {
             return 'authorized';
@@ -37,5 +33,3 @@ function isAuthorized($mysqli) {
     }
     return false;
 }
-
-?>

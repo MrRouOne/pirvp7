@@ -1,14 +1,10 @@
-<?php
-require_once 'main.php';
-?>
+<?php require_once 'main.php'; ?>
 <?php include '../php/auth/register.php'; ?>
 <h1 class="text-center" style="margin-top: 40px;">Регистрация</h1>
 
 <form method="post">
     <div class="d-flex flex-column align-items-center">
-        <div style="margin: 20px 0px;" class=" mb3 col-8 text-danger"><h3><?php foreach ($messages as $key => $value) {
-                    echo($value);
-                } ?></h3></div>
+        <div style="margin: 20px 0px;" class=" mb3 col-8 text-danger"><h3><?php foreach ($messages as $key => $value) { echo($value);} ?></h3></div>
         <div style="margin-bottom: 30px;" class="mb3 col-8">
             <label class="form-label"><h3>ФИО</h3></label>
             <input class="form-control" type="text" name="FIO" required>

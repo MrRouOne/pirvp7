@@ -1,6 +1,4 @@
-<?php
-require_once '../connect.php';
-?>
+<?php require_once '../connect.php'; ?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -31,9 +29,7 @@ require_once '../connect.php';
         </a>
 
 
-        <?php
-        if (checkRole($mysqli) === 'guest'):
-            ?>
+        <?php if (checkRole($mysqli) === 'guest'): ?>
             <div class="dropdown text-end">
                 <a style="margin-top: 15px; margin-right: 100px;" href="#"
                    class="d-block link-dark text-decoration-none dropdown-toggle"
@@ -45,9 +41,7 @@ require_once '../connect.php';
                     <li><a class="dropdown-item" href="login.php">Войти</a></li>
                 </ul>
             </div>
-        <?php
-        elseif (isAdmin($mysqli)):
-            ?>
+        <?php elseif (isAdmin($mysqli)): ?>
             <div class="dropdown text-end">
                 <a style="margin-top: 15px; margin-right: 100px;" href="#"
                    class="d-block link-dark text-decoration-none dropdown-toggle"
@@ -60,9 +54,7 @@ require_once '../connect.php';
                     <li><a class="dropdown-item" href="../php/Auth/logout.php">Выйти</a></li>
                 </ul>
             </div>
-        <?php
-        elseif (isAuthorized($mysqli)):
-            ?>
+        <?php elseif (isAuthorized($mysqli)): ?>
             <div class="dropdown text-end">
                 <a style="margin-top: 15px; margin-right: 100px;" href="#"
                    class="d-block link-dark text-decoration-none dropdown-toggle"
@@ -75,7 +67,5 @@ require_once '../connect.php';
                     <li><a class="dropdown-item" href="../php/Auth/logout.php">Выйти</a></li>
                 </ul>
             </div>
-        <?php
-        endif;
-        ?>
+        <?php endif; ?>
     </header>

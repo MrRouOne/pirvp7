@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 20 2022 г., 13:06
+-- Время создания: Фев 20 2022 г., 17:29
 -- Версия сервера: 10.4.21-MariaDB
 -- Версия PHP: 8.1.2
 
@@ -32,14 +32,6 @@ CREATE TABLE `orders` (
   `user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Дамп данных таблицы `orders`
---
-
-INSERT INTO `orders` (`id`, `user`) VALUES
-(20, 14),
-(22, 14);
-
 -- --------------------------------------------------------
 
 --
@@ -58,9 +50,7 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `title`, `description`, `price`) VALUES
-(1, 'Носки', 'Крутые носки, цвет - чёрный', 18),
-(2, 'Шапка', 'Шапка классная, пёстрая, зимняя и ваще классная', 1001),
-(14, 'Стакан', 'Гранёный стакан со времён Сталина', 40000);
+(1, 'Носки', 'Крутые носки, цвет - чёрный', 15);
 
 -- --------------------------------------------------------
 
@@ -87,18 +77,6 @@ CREATE TABLE `service_orders` (
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Дамп данных таблицы `service_orders`
---
-
-INSERT INTO `service_orders` (`id`, `service`, `orders`, `price`) VALUES
-(9, 1, 20, 15),
-(10, 2, 20, 1000),
-(15, 1, 22, 18),
-(16, 14, 22, 40000),
-(17, 14, 22, 40000),
-(18, 1, 22, 18);
-
 -- --------------------------------------------------------
 
 --
@@ -118,11 +96,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `FIO`, `email`, `password`, `role`) VALUES
-(5, '1', 'admin@admin.admin', '1', 1),
-(10, 'p', 'p@p.p', 'p', 0),
-(13, 'ПП', 'gg1@g.g', '123456', 0),
-(14, 'Артём Анисимов ', 'artem@gmail.com', 'artem123', 0),
-(15, 'Илья Кухарев', 'ilya@gmail.com', 'ilya12345', 0),
 (16, 'admin', 'admin@shop.ru', 'QWEasd123', 1);
 
 --
@@ -177,31 +150,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT для таблицы `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `service_carts`
 --
 ALTER TABLE `service_carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT для таблицы `service_orders`
 --
 ALTER TABLE `service_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

@@ -1,6 +1,4 @@
-<?php
-require_once 'main.php';
-?>
+<?php require_once 'main.php'; ?>
     <div class="cards">
         <h1 class="text-center" style="margin-top: 40px;">Список товаров</h1>
         <?php
