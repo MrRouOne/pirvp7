@@ -2,9 +2,7 @@
 require_once '../connect.php';
 
 if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
-    $title = strip_tags($_POST['title']);
-    $description = strip_tags($_POST['description']);
-    $price = strip_tags($_POST['price']);
+    arrayStripTags($_POST);
 
     $count = 0;
     $res = checkResult($mysqli, "SELECT * FROM services WHERE title LIKE '$title' and description LIKE '$description' and price LIKE '$price'");

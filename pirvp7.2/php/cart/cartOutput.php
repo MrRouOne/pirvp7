@@ -7,15 +7,12 @@ $priceAll = 0;
 $bool = false;
 while ($row = mysqli_fetch_assoc($resServiceCarts)) {
     $bool = true;
-    $service = $row['service'];
-    $id = $row['id'];
+    arrayKeyToVariable($row);
 
     $resServices = checkResult($mysqli, "SELECT * FROM services WHERE id = '$service'");
 
     $row2 = mysqli_fetch_assoc($resServices);
-    $title = $row2['title'];
-    $description = $row2['description'];
-    $price = $row2['price'];
+    arrayKeyToVariable($row2);
 
     $button = "<form action='cart.php' method='post'>
                     <input  type='hidden' name='id' value=$id>

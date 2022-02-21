@@ -4,10 +4,7 @@ require_once '../connect.php';
 $res = checkResult($mysqli,"SELECT * FROM services");
 
 while ($row = mysqli_fetch_assoc($res)) {
-    $title = $row['title'];
-    $description = $row['description'];
-    $price = $row['price'];
-    $id = $row['id'];
+    arrayKeyToVariable($row);
 
     if (checkRole($mysqli) === 'authorized') {
         $button = "<form action='cart.php' method='post'>

@@ -2,8 +2,7 @@
 require_once '../connect.php';
 
 if (!empty($_POST['submit']) && $_POST['submit'] == 'Вход') {
-    $email = strip_tags($_POST['email']);
-    $password = strip_tags($_POST['password']);
+    arrayStripTags($_POST);
 
     $row = mysqli_fetch_assoc(checkResult($mysqli, "SELECT * FROM users WHERE email LIKE '$email' and password LIKE '$password'"));
 

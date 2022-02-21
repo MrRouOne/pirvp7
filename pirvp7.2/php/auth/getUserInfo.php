@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "../php/dbconnect.php";
-require_once "../php/db/dbFunction.php";
+require_once "../php/helpFunctions/dbFunction.php";
 
 if (!empty($_SESSION['email'])) {
     $email = strip_tags($_SESSION['email']);

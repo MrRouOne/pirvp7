@@ -20,9 +20,7 @@ while ($row = mysqli_fetch_assoc($resOrders)) {
         $resServices = checkResult($mysqli, "SELECT * FROM services WHERE id = '$service'");
 
         $row3 = mysqli_fetch_assoc($resServices);
-        $title = $row3['title'];
-        $description = $row3['description'];
-        $price = $row3['price'];
+        arrayKeyToVariable($row3);
         $priceAll += $price;
 
         echo "<div style='margin-top: 40px;' class='card'>
