@@ -2,7 +2,6 @@
 <?php if (isAdmin($mysqli) or isAuthorized($mysqli)): ?>
     <?php
     include '../php/staff/addCar.php';
-    include '../php/staff/allSelects.php';
     ?>
     <h1 class="text-center" style="margin-top: 40px;">Добавить автомобиль</h1>
 
@@ -22,7 +21,7 @@
             </div>
             <div style="margin-bottom: 30px;" class="mb3 col-8">
                 <label class="form-label"><h3>Цвет</h3></label>
-                <input class="form-control" type="text" name="color" required>
+                <input class="form-control" type="color" name="color" required>
             </div>
             <div style="margin-bottom: 30px;" class="mb3 col-8">
                 <label class="form-label"><h3>Номер</h3></label>
@@ -30,21 +29,21 @@
             </div>
             <div class="mb3 col-8">
                 <label class="form-label"><h3>Владелец</h3></label>
-                <select class="form-select" name="owner">
-                    <option selected disabled value="">---------</option>
-                    <?php
-                    foreach ($owners as $id => $data) {
-                        echo "<option value='$id'>" . $data . '</option>';
-                    }
-                    ?>
-                </select>
+                <input class="form-control" type="text" name="owner" id="ownersSearch" required>
 
                 <input style="margin-top: 50px;" type="submit" class="btn btn-lg btn-primary " name="submit"
                        value="Добавить">
             </div>
         </div>
-
     </form>
+
+    <script>
+        $('#ownersSearch').autocomplete({
+            source: "owners_search.php"
+        });
+    </script>
+
+
 <?php else: ?>
     <h1 class="text-danger text-center">У вас нет прав</h1>
 <?php endif; ?>

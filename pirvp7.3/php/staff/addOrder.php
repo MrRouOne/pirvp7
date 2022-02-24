@@ -2,25 +2,17 @@
 require_once '../connect.php';
 if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
     arrayStripTags($_POST);
-    $resCar = checkResult($mysqli, "SELECT * FROM orders WHERE car = '$car'");
-    $resPlace = checkResult($mysqli, "SELECT * FROM orders WHERE place = '$place'");
     $messages = [];
-    
-    if ($resCar->{'num_rows'} != 0) {
-        $messages[] = "Данный автомобиль уже зарегистрирован на стоянке!<br>";
-    }
 
-    if ($resPlace->{'num_rows'} != 0) {
-        $messages[] = "Данное место уже занято!<br>";
+    if (!existCar($car,$mysqli)) {
+        $messages[] = "Введены некорректные данные автомобиля!<br>";
     }
+    $car = getCar($car,$mysqli);
 
-    if (empty($car)) {
-        $messages[] = "Выбирете автомобиль!<br>";
+    if (!existPlace($place,$mysqli)) {
+        $messages[] = "Введены некорректные данные места!<br>";
     }
-
-    if (empty($place)) {
-        $messages[] = "Выбирете место!<br>";
-    }
+    $place = getPlace($place,$mysqli);
 
     if (!correctDate($entry_date)) {
         $messages[] = "Введена некорректная дата!<br>";
@@ -44,6 +36,16 @@ if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
 
     if (!isNumber($arrears)) {
         $messages[] = "Задолженность должна содержать только цифры!<br>";
+    }
+
+    $resCar = checkResult($mysqli, "SELECT * FROM orders WHERE car = '$car'");
+    if ($resCar->{'num_rows'} != 0) {
+        $messages[] = "Данный автомобиль уже зарегистрирован на стоянке!<br>";
+    }
+
+    $resPlace = checkResult($mysqli, "SELECT * FROM orders WHERE place = '$place'");
+    if ($resPlace->{'num_rows'} != 0) {
+        $messages[] = "Данное место уже занято!<br>";
     }
 
     if (count($messages) < 1) {
