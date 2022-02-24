@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 23 2022 г., 15:27
+-- Время создания: Фев 24 2022 г., 18:38
 -- Версия сервера: 10.4.21-MariaDB
 -- Версия PHP: 8.1.2
 
@@ -41,9 +41,12 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`id`, `brand`, `model`, `color`, `number`, `owner`) VALUES
-(1, 'Тайота', 'Камри', 'Белая', 'а777аа 70рус', 15),
-(3, 'Шевролет', 'Авео', 'Черная', 'к634рл 70рус', 17),
-(5, 'Лада', 'Веста', 'Зелёная', 'л001ох 70рус', 21);
+(1, 'Тайота', 'Камри', '#f5f0f0', 'а777аа 70рус', 15),
+(3, 'Шевролет', 'Авео', '#000\n', 'к634рл 70рус', 17),
+(5, 'Лада', 'Веста', '#1bc237', 'л001ох 70рус', 21),
+(6, 'Тесла', 'Угловатая', '#919191', 'MMA 45X', 21),
+(11, 'Тайота', 'Хайс', '#f5f0f0', 'т723лд 54рус', 21),
+(14, 'Порш', '911', '#e7c30d', 'SGO 530', 25);
 
 -- --------------------------------------------------------
 
@@ -68,7 +71,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `car`, `entry_date`, `period`, `cost`, `sale`, `arrears`, `place`) VALUES
 (8, 5, '2022-02-23 19:45:00', 365, 120000, 30, 1000, 2),
-(9, 3, '2022-02-23 21:15:00', 2, 1000, 0, 0, 5);
+(9, 3, '2022-02-23 21:15:00', 2, 1000, 0, 0, 5),
+(11, 6, '2022-02-23 22:35:00', 34, 34000, 10, 0, 13),
+(16, 14, '2022-02-25 00:32:00', 11, 11000, 11, 0, 15);
 
 -- --------------------------------------------------------
 
@@ -90,9 +95,11 @@ CREATE TABLE `owners` (
 INSERT INTO `owners` (`id`, `name`, `lastname`, `phone_number`) VALUES
 (15, 'Иван', 'Иванов', '88005553535'),
 (16, 'Иван', 'Иванов', '88005553534'),
-(17, 'Петр', 'Петров', '89993211212'),
+(17, 'Петр', 'Петров', '89993212435'),
 (18, 'Андрей', 'Андреев', '89521521212'),
-(21, 'Илья', 'Кухарев', '89009009090');
+(21, 'Илья', 'Кухарев', '89009009090'),
+(24, 'Петр', 'Петров', '89993214512'),
+(25, 'Мария', 'Седова', '89609697646');
 
 -- --------------------------------------------------------
 
@@ -126,7 +133,13 @@ INSERT INTO `places` (`id`, `title`, `area`) VALUES
 (13, 'C1', '10 м'),
 (14, 'C2', '10 м'),
 (15, 'С3', '12 м'),
-(16, 'С4', '12 м');
+(16, 'С4', '12 м'),
+(17, 'C5', '10 м'),
+(18, 'C6', '10 м'),
+(19, 'D1', '8 м'),
+(20, 'D2', '8 м'),
+(21, 'D3', '8 м'),
+(22, 'D4', '20 м');
 
 -- --------------------------------------------------------
 
@@ -150,7 +163,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `password`, `is_admin`) VALUES
 (1, 'Артём', 'Анисимов', 'artem@gmail.com', 'artem123', 0),
 (2, 'админ', 'админов', 'admin@admin.admin', 'admin', 1),
-(3, 'Иван', 'Иванов', 'ivan@ivan.ivan', 'ivanivan', 0);
+(3, 'Иван', 'Иванов', 'ivan@ivan.ivan', 'ivanivan', 0),
+(4, 'Владимир', 'Путин', 'vlPt@gmail.com', 'vlPtvlPt', 0);
 
 --
 -- Индексы сохранённых таблиц
@@ -201,31 +215,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT для таблицы `owners`
 --
 ALTER TABLE `owners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT для таблицы `places`
 --
 ALTER TABLE `places`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
