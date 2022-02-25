@@ -11,6 +11,10 @@ if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
         $messages[] = "Такое место уже существует!<br>";
     }
 
+    if (!correctArea($area)) {
+        $messages[] = "Некорректные данные площади! Введите размерность, а затем единицу измерения.<br>";
+    }
+
     if (count($messages) < 1) {
         checkResult($mysqli, "INSERT INTO places (title, area) VALUES ('$title','$area')");
         $messages[] = "<div style='color: green;'>Место успешно добавлено!</div>";

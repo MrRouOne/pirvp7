@@ -1,5 +1,4 @@
 <?php
-// Подключаем сессию и базу данных
 require_once '../connect.php';
 
 if (!empty($_POST['submit']) && $_POST['submit'] == 'Оформить заказ') {

@@ -43,10 +43,10 @@ function existOwner(string $field, $database): bool
     $lastname = $field[1];
     $phone_number = $field[2];
     $query = "SELECT * FROM owners WHERE name LIKE '$name' and lastname LIKE '$lastname' and phone_number LIKE '$phone_number'";
-    $res = checkResult($database,$query);
+    $res = checkResult($database, $query);
 
     if ($res->{'num_rows'} === 0) {
-      return false;
+        return false;
     }
     return true;
 }
@@ -60,9 +60,9 @@ function existCar(string $field, $database): bool
 
     $brand = $field[0];
     $model = $field[1];
-    $number = $field[2]." ".$field[3];
+    $number = $field[2] . " " . $field[3];
     $query = "SELECT * FROM cars WHERE brand LIKE '$brand' and model LIKE '$model' and number LIKE '$number'";
-    $res = checkResult($database,$query);
+    $res = checkResult($database, $query);
 
     if ($res->{'num_rows'} === 0) {
         return false;
@@ -78,11 +78,28 @@ function existPlace(string $field, $database): bool
     }
 
     $title = $field[0];
-    $area = $field[1]." ".$field[2];
+    $area = $field[1] . " " . $field[2];
     $query = "SELECT * FROM places WHERE title LIKE '$title' and area LIKE '$area'";
-    $res = checkResult($database,$query);
+    $res = checkResult($database, $query);
 
     if ($res->{'num_rows'} === 0) {
+        return false;
+    }
+    return true;
+}
+
+function correctArea(string $field): bool
+{
+    $field = explode(" ", $field);
+    if (count($field) != 2) {
+        return false;
+    }
+
+    if (!is_numeric($field[0])) {
+        return false;
+    }
+
+    if (is_numeric($field[1])) {
         return false;
     }
     return true;

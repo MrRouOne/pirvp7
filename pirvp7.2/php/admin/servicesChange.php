@@ -3,6 +3,7 @@ require_once '../connect.php';
 
 if (!empty($_POST['submit']) && $_POST['submit'] == 'Обновить') {
     arrayStripTags($_POST);
+    $messages = [];
 
     $query = "SELECT * FROM services WHERE title LIKE '$title' and description LIKE '$description' and price LIKE '$price'";
     $res = checkResult($mysqli, $query);

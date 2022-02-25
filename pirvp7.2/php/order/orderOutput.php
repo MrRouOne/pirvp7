@@ -16,18 +16,18 @@ while ($row = mysqli_fetch_assoc($resOrders)) {
 
     while ($row2 = mysqli_fetch_assoc($resServiceOrders)) {
         $service = $row2['service'];
-
+        $priceOrder = $row2['price'];
         $resServices = checkResult($mysqli, "SELECT * FROM services WHERE id = '$service'");
 
         $row3 = mysqli_fetch_assoc($resServices);
         arrayKeyToVariable($row3);
-        $priceAll += $price;
+        $priceAll += $priceOrder;
 
         echo "<div style='margin-top: 40px;' class='card'>
         <div class='card-body'>
             <h4 class='card-title'>$title</h4>
             <p class='card-text'>$description</p>
-            <p class='card-text text-danger'>$price руб.</p>
+            <p class='card-text text-danger'>$priceOrder руб.</p>
             </div></div>";
     }
     echo "</div></div>";

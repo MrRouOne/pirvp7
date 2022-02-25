@@ -9,8 +9,8 @@ if (!empty($_SESSION['email'])) {
     $row = mysqli_fetch_assoc(checkResult($mysqli,  "SELECT * FROM users WHERE email LIKE '$email'"));
 
     $USER_ID = $row['id'];
-    $USER_name = $row['name'];
-    $USER_lastname = $row['lastname'];
-    $USER_email = $row['email'];
-    $USER_role = $row['role'];
+    $USER_NAME = $row['name'];
+    $USER_LASTNAME = $row['lastname'];
+    $USER_EMAIL = $row['email'];
+    $USER_ROLE = $row['role'];
 }

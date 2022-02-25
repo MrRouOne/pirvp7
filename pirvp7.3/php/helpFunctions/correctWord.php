@@ -1,7 +1,8 @@
 <?php
 
-function correctWord($field,$output1,$output2,$output3) {
-    if  ($field >= 11 and $field <= 14) {
+function correctWord($field, $output1, $output2, $output3)
+{
+    if ($field >= 11 and $field <= 14) {
         return $output3;
     }
     if ($field % 10 === 1) {

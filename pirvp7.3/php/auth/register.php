@@ -3,9 +3,9 @@ require_once '../connect.php';
 
 if (!empty($_POST['submit']) && $_POST['submit'] == 'Регистрация') {
     arrayStripTags($_POST);
+    $messages = [];
 
     $res = checkResult($mysqli, "SELECT * FROM users WHERE email = '$email'");
-    $messages = [];
 
     if ($res->{'num_rows'} != 0) {
         $messages[] = "Такой пользователь уже существует!<br>";

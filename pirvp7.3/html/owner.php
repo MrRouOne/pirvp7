@@ -2,7 +2,6 @@
 <?php if (isAdmin($mysqli) or isAuthorized($mysqli)): ?>
     <?php include '../php/staff/addOwner.php'; ?>
     <h1 class="text-center" style="margin-top: 40px;">Добавить владельца</h1>
-
     <form method="post">
         <div class="d-flex flex-column align-items-center">
             <div style="margin: 20px 0px;" class=" mb3 col-8 text-danger"><h3><?php foreach ($messages as $key => $value) { echo($value);} ?></h3></div>
@@ -22,7 +21,6 @@
                        value="Добавить">
             </div>
         </div>
-
     </form>
 <?php else: ?>
     <h1 class="text-danger text-center">У вас нет прав</h1>

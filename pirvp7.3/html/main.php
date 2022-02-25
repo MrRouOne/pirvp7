@@ -27,17 +27,15 @@
             <a class="text-decoration-none" href="http://localhost/pirvp7/pirvp7.3/html/index.php">Автостоянка</a>
         </h2>
 
-
         <?php if (checkRole($mysqli) === 'guest'): ?>
-            <a  class="btn btn-lg btn-primary" href="login.php">Вход</a>
-
+            <a class="btn btn-lg btn-primary" href="login.php">Вход</a>
 
         <?php elseif (isAdmin($mysqli)): ?>
             <div class="dropdown text-end">
                 <a style="margin-top: 15px; margin-right: 100px;" href="#"
                    class="d-block link-dark text-decoration-none dropdown-toggle"
                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?php echo "$USER_name $USER_lastname"; ?>
+                    <?php echo "$USER_NAME $USER_LASTNAME"; ?>
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                     <li><a class="dropdown-item" href="register.php">Добавить пользователя</a></li>
@@ -45,12 +43,13 @@
                     <li><a class="dropdown-item" href="../php/Auth/logout.php">Выйти</a></li>
                 </ul>
             </div>
+
         <?php elseif (isAuthorized($mysqli)): ?>
             <div class="dropdown text-end">
                 <a style="margin-top: 15px; margin-right: 100px;" href="#"
                    class="d-block link-dark text-decoration-none dropdown-toggle"
                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?php echo "$USER_name $USER_lastname"; ?>
+                    <?php echo "$USER_NAME $USER_LASTNAME"; ?>
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                     <li><a class="dropdown-item" href="allOwnersAndCars.php">Список владельцев</a></li>

@@ -9,15 +9,16 @@ while ($row = mysqli_fetch_assoc($resServiceCarts)) {
     $bool = true;
     arrayKeyToVariable($row);
 
+    $button = "<form action='cart.php' method='post'>
+                    <input  type='hidden' name='id' value=$id>
+                    <input  type='submit' class='btn btn-danger' name='submit' value='Удалить'>
+                    </form>";
+
     $resServices = checkResult($mysqli, "SELECT * FROM services WHERE id = '$service'");
 
     $row2 = mysqli_fetch_assoc($resServices);
     arrayKeyToVariable($row2);
 
-    $button = "<form action='cart.php' method='post'>
-                    <input  type='hidden' name='id' value=$id>
-                    <input  type='submit' class='btn btn-danger' name='submit' value='Удалить'>
-                    </form>";
 
     echo "<div style='margin-top: 40px;' class='card'>
         <div class='card-body'>

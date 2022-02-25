@@ -11,4 +11,5 @@ require_once "php/helpFunctions/arrayFunctions.php";
 require_once "php/helpFunctions/correctWord.php";
 require_once "php/helpFunctions/percent.php";
 require_once "php/helpFunctions/numberOutput.php";
+require_once "php/helpFunctions/svgs.php";
 

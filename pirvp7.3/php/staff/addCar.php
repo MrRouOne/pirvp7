@@ -8,10 +8,10 @@ if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
         $messages[] = "Выбирете владельца!<br>";
     }
 
-    if (!existOwner($owner,$mysqli)) {
+    if (!existOwner($owner, $mysqli)) {
         $messages[] = "Введены некорректные данные Владельца!<br>";
     }
-    $owner = getOwner($owner,$mysqli);
+    $owner = getOwner($owner, $mysqli);
 
     $res = checkResult($mysqli, "SELECT * FROM cars WHERE brand LIKE '$brand'and model LIKE '$model' and owner LIKE '$owner'");
     if ($res->{'num_rows'} != 0) {

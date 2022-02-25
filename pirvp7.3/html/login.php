@@ -1,5 +1,4 @@
 <?php require_once 'main.php'; ?>
-
 <?php include '../php/auth/login.php'; ?>
 <h1 class="text-center" style="margin-top: 40px;">Авторизация</h1>
 <div style="margin: 20px 0px;" class=" mb3 col-8 text-danger"><h3 class="text-center"><?= $message ?? ''; ?></h3></div>
@@ -17,6 +16,5 @@
                    value="Вход">
         </div>
     </div>
-
 </form>
 </div>

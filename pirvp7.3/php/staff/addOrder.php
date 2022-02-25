@@ -4,15 +4,15 @@ if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
     arrayStripTags($_POST);
     $messages = [];
 
-    if (!existCar($car,$mysqli)) {
+    if (!existCar($car, $mysqli)) {
         $messages[] = "Введены некорректные данные автомобиля!<br>";
     }
-    $car = getCar($car,$mysqli);
+    $car = getCar($car, $mysqli);
 
-    if (!existPlace($place,$mysqli)) {
+    if (!existPlace($place, $mysqli)) {
         $messages[] = "Введены некорректные данные места!<br>";
     }
-    $place = getPlace($place,$mysqli);
+    $place = getPlace($place, $mysqli);
 
     if (!correctDate($entry_date)) {
         $messages[] = "Введена некорректная дата!<br>";

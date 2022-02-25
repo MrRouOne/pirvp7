@@ -2,9 +2,9 @@
 require_once '../connect.php';
 if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
     arrayStripTags($_POST);
-    $res = checkResult($mysqli, "SELECT * FROM owners WHERE phone_number = '$phone_number'");
     $messages = [];
 
+    $res = checkResult($mysqli, "SELECT * FROM owners WHERE phone_number = '$phone_number'");
     if ($res->{'num_rows'} != 0) {
         $messages[] = "Владелец уже существует!<br>";
     }

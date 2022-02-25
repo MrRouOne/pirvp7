@@ -1,5 +1,4 @@
 <?php
-// Подключаем сессию и базу данных
 require_once '../connect.php';
 
 function checkRole($mysqli): string
@@ -25,5 +24,4 @@ function checkRole($mysqli): string
     }
     return "guest";
 }
-
 ?>

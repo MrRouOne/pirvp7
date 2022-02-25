@@ -1,9 +1,7 @@
 <?php require_once 'main.php'; ?>
 <?php if (isAdmin($mysqli) or isAuthorized($mysqli)): ?>
     <h1 class="text-center" style="margin-top: 40px;">Оформить заказ</h1>
-    <?php
-    include '../php/staff/addOrder.php';
-    ?>
+    <?php include '../php/staff/addOrder.php'; ?>
     <form method="post">
         <div class="d-flex flex-column align-items-center">
             <div style="margin: 20px 0px;" class=" mb3 col-8 text-danger">
@@ -42,15 +40,15 @@
                        value="Добавить">
             </div>
         </div>
-
     </form>
 
     <script>
         $('#carsSearch').autocomplete({
-            source: "cars_search.php"
+            source: "searchCars.php"
         });
+
         $('#placesSearch').autocomplete({
-            source: "places_search.php"
+            source: "searchPlaces.php"
         });
     </script>
 
